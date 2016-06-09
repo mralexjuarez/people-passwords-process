@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>People, Passwords and Process</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style>
+			body {
+				background-image: url(http://0f7e4b6f48f01603dbf0-798ceaca68548b7d94e5a0f7efc280b5.r85.cf5.rackcdn.com/grain-backgrounds-3.png);
+			}
+			section { font-family: 'Open Sans', sans-serif; }
+			.dropshadow {text-shadow: 3px 3px #ffffff !important; }
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="images/building.jpg" data-background-position="top" >
+					<h2 class="dropshadow" style="color: black">People, Passwords and Process</h2>
+					<hr/>
+					<h3 class="dropshadow" style="color: black">Some witty sub-title</h3>
+				</section>
+				
+				<section>
+					<h2>Agenda</h2>
+					<ul>
+						<li class="fragment">Why this topic</li>
+						<li>People</li>
+						<li>Passwords</li>
+						<li>Process</li>
+						<li class="fragment">Demo</li>
+						<li class="fragment">Q &amp; A</li>
+					</ul>
+				</section>
+				
+				<section>
+					<section>
+					<h2>So Why this Topic?</h2>
+					<ul>
+						<li>Back to Basics</li>
+						<li>I like sharing knowledge</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>So Why this Topic?</h2>
+					<blockquote>If you can't explain it simply, you don't understand it well enough. <br/>-Albert Einstein</blockquote>
+				</section>
+				
+				</section>
+				
+				<section>
+					<h1>I am not an expert!</h1>
+				</section>
+								
+<!-- SECTION PEOPLE -->				
+				<section>
+				<section>
+					<h1>People</h1>
+					<hr/>
+					<h3>Usually we are the problem</h3>
+				</section>
+				<section>
+					<h2>Passwords can be leaked</h2>
+					<img src="images/boingboing.png" alt="" />
+				</section>
+				<section>
+					<h2>June 5th 2012</h2>
+					<img src="images/linkedin.png" alt="" />
+				</section>
+				<section>
+					<h2>Social Engineering</h2>
+					<p>We just want to be helpful. It is in our nature.</p>
+				</section>
+				<section>
+					<h2>We suck!</h2>
+				</section>
+				</section>
+				
+<!-- SECTION PASSWORDS -->				
+				<section>
+				<section>
+					<h1>Passwords</h1>
+					<hr />
+					<h3>An Intro to Linux Password Management</h3>
+				</section>
+				<section>
+					<h2>Passwords</h2>
+					<ul>
+						<ul>
+							<li>Adding an account</li>
+							<li>Files in Play</li>
+							<li>Password vs Keys</li>
+							<li>PAM (briefly)</li>
+							<li>Account Management</li>
+						</ul>
+					</ul>
+				</section>
+				<section>
+					<h2>Adding an Account</h2>
+					<pre># useradd joeracker
+# passwd joeracker
+Changing password for user joeracker.
+New password:
+BAD PASSWORD: it is based on a dictionary word
+BAD PASSWORD: is too simple</pre>
+				</section>
+				<section>
+					<h2>Getting Account Information</h2>
+					<pre># id joeracker
+uid=501(joeracker) gid=502(joeracker) groups=502(joeracker)
+
+# passwd -S joeracker
+joeracker PS 2016-06-08 0 99999 7 -1 (Password set, SHA512 crypt.)
+
+# chage -l joeracker
+Last password change				: Jun 09, 2016
+Password expires					: never
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 99999
+Number of days of warning before password expires	: 7
+</pre>
+				</section>
+				<section>
+					<h2>Files in Play</h2>
+					<ul>
+						<li>/etc/passwd</li>
+						<li>/etc/shadow</li>
+						<li>/var/log/secure</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Password vs Keys</h2>
+				</section>
+				<section>
+					<h2>PAM (Briefly)</h2>
+				</section>
+				
+				<section>
+					<h2>Account Mangaemnet</h2>
+				</section>
+				
+			</section>
+				
+<!-- SECTION PROCESS -->								
+				<section>
+				<section>
+					<h2>Process</h2>
+				</section>
+				</section>
+				
+<!-- SECTION Demo -->								
+				<section>
+				<section>
+					<h2>Demo</h2>
+				</section>
+				</section>
+				
+			    <section>
+				<section>
+				<h2>In Closing...</h2>
+			</section>
+			<section>
+			    <h2>Contact Information</h2>
+                  <div id="hcard-Alex-Juarez" class="vcard">
+                   <a class="url fn" href="http://unsupported.io">Alex Juarez</a>
+                   <div class="org">Principal Engineer Rackspace</div>
+                   <a class="email" href="mailto:alex.juarez@rackspace.com">alex.juarez@rackspace.com</a>
+                  <div><span class="category">twitter: <a href="http://www.twitter.com/mralexjuarez" target="_blank">@mralexjuarez</a></span></div><p style="font-size:smaller;">This <a href="http://microformats.org/wiki/hcard">hCard</a> created with the <a href="http://microformats.org/code/hcard/creator">hCard creator</a>.</p>
+                  </div>
+			</section>
+
+		    <section>
+               <h2>A short bio</h2>
+               <p>Alex Juarez is a Principal Engineer at Rackspace, touting 8 years with the company. Alex enjoys all things Linux, especially training and mentoring others, and is incredibly qualified to do so as an RHCA/RHCI. When Alex isn't helping others he's crafting killer cocktails and finding the best spots to grub in San Antonio.</p>
+               <small>Thanks <a href="https://twitter.com/jilljubs">@jilljubs</a></small>
+             </section>
+
+			<section>
+                   <h2>Q &amp; A</h2>
+                   <h6>(Or we can talk about Whiskey)</h6>
+                   <img src="http://0f7e4b6f48f01603dbf0-798ceaca68548b7d94e5a0f7efc280b5.r85.cf5.rackcdn.com/whiskey.jpg" alt="" style="border:0px;"/>
+             </section>
+			 </section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
