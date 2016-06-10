@@ -268,12 +268,59 @@ auth        required      pam_deny.so</pre>
 				</section>
 				
 				<section>
+					<h2>More PAM Info</h2>
+					<p>/usr/share/doc/pam-1.1.1/</p>
+				</section>
+				
+				<section>
+					<h2>pam_cracklib</h2>
+					<p>password  required pam_cracklib.so difok=3 minlen=15 dcredit= 2 ocredit=2</p>
+					<ul>
+						<li>Length</li>
+						<li>Case</li>
+						<li>Character Type</li>
+					</ul>
+					<p>/usr/share/doc/pam-1.1.1/txts/README.pam_cracklib</p>
+					
+				</section>
+				
+				<section>
 					<h2>The rest is magic!</h2>
 					<img src="images/magic-cat.jpg" alt="" >
 				</section>
 				
 				<section>
 					<h2>Account Mangaemnet</h2>
+					<ul>
+						<li>passwd</li>
+						<li>chage</li>
+						<li>last / lastb</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>passwd</h2>
+					<p>Change a user's password</p>
+					<pre>passwd [USER]</pre>
+					
+					<p>Lock / Unlock a user account</p>
+					<pre>passwd -l [USER]
+passwd -u [USER]</pre>
+					
+					<p>Expire a user account</p>
+					<pre>passwd -e [USER]</pre>
+					
+				</section>
+				
+				<section>
+					<h2>chage</h2>
+					<p>Lock / Unlock a user account</p>
+					<pre>chage -l [USER]
+chage -u [USER]</pre>
+					
+					<p>Expire a user account</p>
+					<pre>passwd -e [USER]</pre>
+					
 				</section>
 				
 			</section>
