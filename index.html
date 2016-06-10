@@ -212,13 +212,60 @@ Number of days of warning before password expires	: 7
 				<section>
 					<h2>PAM (Briefly)</h2>
 					<pre>module_interface     control_flag     module_name module_arguments</pre>
+					<pre>#%PAM-1.0
+auth       include	system-auth
+account    include	system-auth
+password   substack	system-auth
+-password   optional	pam_gnome_keyring.so</pre>
 				</section>
 				
 				<section>
-					<h2>PAM (Briefly)</h2>
-					
+					<h2>PAM (Briefly) - Control Flags</h2>
+				     <p>required — The module result must be successful for authentication to continue. If the test fails at this point, the user is not notified until the results of all module tests that reference that interface are complete.</p>
+				    
+					<small>source: <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/PAM_Configuration_Files.html">https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/PAM_Configuration_Files.html</a></small>
 				</section>
 				
+				<section>
+					<h2>PAM (Briefly) - Control Flags</h2>
+				     <p>requisite — The module result must be successful for authentication to continue. However, if a test fails at this point, the user is notified immediately with a message reflecting the first failed required or requisite module test.</p>
+				    
+					<small>source: <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/PAM_Configuration_Files.html">https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/PAM_Configuration_Files.html</a></small>
+				</section>
+				
+				<section>
+					<h2>PAM (Briefly) - Control Flags</h2>
+				     <p>sufficient — The module result is ignored if it fails. However, if the result of a module flagged sufficient is successful and no previous modules flagged required have failed, then no other results are required and the user is authenticated to the service.</p>
+				    
+					<small>source: <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/PAM_Configuration_Files.html">https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/PAM_Configuration_Files.html</a></small>
+				</section>
+				
+				<section>
+					<h2>PAM (Briefly) - Control Flags</h2>
+				     <p>optional — The module result is ignored. A module flagged as optional only becomes necessary for successful authentication when no other modules reference the interface.</p>
+				    
+					<small>source: <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/PAM_Configuration_Files.html">https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/PAM_Configuration_Files.html</a></small>
+				</section>
+				
+				
+				<section>
+					<h2>PAM (Briefly) - Control Flags</h2>
+				     <p>include — Unlike the other controls, this does not relate to how the module result is handled. This flag pulls in all lines in the configuration file which match the given parameter and appends them as an argument to the module.</p>
+				    
+					<small>source: <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/PAM_Configuration_Files.html">https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/PAM_Configuration_Files.html</a></small>
+				</section>
+				
+				
+				<section>
+					<h2>/etc/pam.d/system-auth</h2>
+					<pre>#%PAM-1.0
+# This file is auto-generated.
+# User changes will be destroyed the next time authconfig is run.
+auth        required      pam_env.so
+auth        sufficient    pam_unix.so nullok try_first_pass
+auth        requisite     pam_succeed_if.so uid >= 500 quiet
+auth        required      pam_deny.so</pre>
+				</section>
 				
 				<section>
 					<h2>The rest is magic!</h2>
