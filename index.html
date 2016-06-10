@@ -314,13 +314,20 @@ passwd -u [USER]</pre>
 				
 				<section>
 					<h2>chage</h2>
-					<p>Lock / Unlock a user account</p>
-					<pre>chage -l [USER]
-chage -u [USER]</pre>
+					<p>Force a user to change their password on the next login</p>
+					<pre>chage -d 0 [USER]</pre>
 					
 					<p>Expire a user account</p>
-					<pre>passwd -e [USER]</pre>
+					<pre>chage -E $(date -d "1 week" +%F)[USER]</pre>
 					
+					<p>List Account Info</p>
+					<pre>chage -l [USER]</pre>
+				</section>
+				
+				<section>
+					<h2>last / lastb</h2>
+					<p>last - Show the last users logged in. Writs to /var/log/wtmp</p>
+					<p>lastb - Show the last bad attempts /var/log/btmp</p>
 				</section>
 				
 			</section>
@@ -329,6 +336,16 @@ chage -u [USER]</pre>
 				<section>
 				<section>
 					<h2>Process</h2>
+					<hr/>
+					<h3>Intro to password "recovery"</h3>
+				</section>
+				<section>
+					<h2>Rainbow Table</h2>
+					<p>A table of hashed passwords that is pre-computed</p>
+				</section>
+				<section>
+					<h2>Brute Force</h2>
+					<p>A table of hashed passwords that is pre-computed</p>
 				</section>
 				</section>
 				
