@@ -107,7 +107,6 @@
 						<ul>
 							<li>Adding an account</li>
 							<li>Files in Play</li>
-							<li>Password vs Keys</li>
 							<li>PAM (briefly)</li>
 							<li>Account Management</li>
 						</ul>
@@ -149,10 +148,54 @@ Number of days of warning before password expires	: 7
 					</ul>
 				</section>
 				<section>
-					<h2>Password vs Keys</h2>
+					<h2>/etc/passwd</h2>
+					<img src="images/etc-passwd.png" alt="" />
+					<ul>
+				    <li>Account username</li>
+				    <li>password - not really</li>
+				    <li>User ID</li>
+				    <li>Group ID</li>
+				    <li>Comment field</li>
+				    <li>Home directory</li>
+				    <li>User shell</li>
+					</ul>
+				</section>
+				<section>
+					<h2>/etc/shadow</h2>
+					<img src="images/etc-shadow.png" alt="" >
+					<ul>
+					    <li>Username</li>
+					    <li>Password</li>
+					    <li>Last password change</li>
+					    <li>Minimum</li>
+					    <li>Maximum</li>
+					    <li>Warn</li>
+					    <li>Inactive</li>
+					    <li>Expire</li>
+					</ul>
+				</section>
+				<section>
+					<h2>/var/log/secure</h2>
+					Contains some of the following
+					<br/>
+					<ul>
+						<li>User attempts to connect</li>
+						<li>A user gaining sudo access</li>
+						<li>User disconnects</li>
+					</ul>
 				</section>
 				<section>
 					<h2>PAM (Briefly)</h2>
+					<ul>
+						<li>Pluggable Authentication Modules</li>
+						<li>Single Source of Authentication</li>
+						<li>/etc/pam.d</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>The rest is magic!</h2>
+					<img src="images/magic-cat.jpg" alt="" >
 				</section>
 				
 				<section>
