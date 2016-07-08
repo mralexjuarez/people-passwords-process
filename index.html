@@ -79,11 +79,29 @@
 				</section>
 				<section>
 					<h2>Passwords can be leaked</h2>
-					<img src="images/boingboing.png" alt="" />
+					<a href="http://boingboing.net/2016/03/30/cnbcs-secure-password-tutori.html"><img src="images/boingboing.png" alt="" /></a>
+					<small><a href="http://boingboing.net/2016/03/30/cnbcs-secure-password-tutori.html">http://boingboing.net/2016/03/30/cnbcs-secure-password-tutori.html</a></small>
+				</section>
+				<section>
+					<h2>Passwords can be leaked</h2>
+					<a href="http://motherboard.vice.com/read/cnbc-tried-and-massively-failed-to-teach-people-about-password-security"><img src="images/motherboard.png" alt="" /></a>
+					<small><a href="http://motherboard.vice.com/read/cnbc-tried-and-massively-failed-to-teach-people-about-password-security">http://motherboard.vice.com/read/cnbc-tried-and-massively-failed-to-teach-people-about-password-security</a></small>
+				</section>
+				<section>
+					<h1>117 Million</h1>
+					<h3 class="fragment">The number of linkedin passwords leaked</h3>
 				</section>
 				<section>
 					<h2>June 5th 2012</h2>
-					<img src="images/linkedin.png" alt="" />
+					<a href="https://blog.linkedin.com/2012/06/06/linkedin-member-passwords-compromised"><img src="images/linkedin.png" alt="" /></a>
+				</section>
+				<section>
+					<h3>The Passwords were easily cracked</h3>
+					From TechCrunch
+					<img src="images/unsalted2.png" alt="" />
+					<br/>
+					From linkedin
+					<img src="images/unsalted1.png" alt="" />
 				</section>
 				<section data-background-image="images/hackers.jpg">
 					<table style="background-color:black">
@@ -113,45 +131,17 @@
 				<section>
 					<h1>Passwords</h1>
 					<hr />
-					<h3>An Intro to Linux Password Management</h3>
+					<h3>An Intro to Account/Password Management</h3>
 				</section>
 				<section>
-					<h2>Passwords</h2>
+					<h2>Accounts/Passwords</h2>
 					<ul>
 						<ul>
-							<li>Adding an account</li>
 							<li>Files in Play</li>
+							<li>Commands for Account Management</li>
 							<li>PAM (briefly)</li>
-							<li>Account Management</li>
 						</ul>
 					</ul>
-				</section>
-				<section>
-					<h2>Adding an Account</h2>
-					<pre># useradd joeracker
-# passwd joeracker
-Changing password for user joeracker.
-New password:
-BAD PASSWORD: it is based on a dictionary word
-BAD PASSWORD: is too simple</pre>
-				</section>
-				<section>
-					<h2>Getting Account Information</h2>
-					<pre># id joeracker
-uid=501(joeracker) gid=502(joeracker) groups=502(joeracker)
-
-# passwd -S joeracker
-joeracker PS 2016-06-08 0 99999 7 -1 (Password set, SHA512 crypt.)
-
-# chage -l joeracker
-Last password change				: Jun 09, 2016
-Password expires					: never
-Password inactive					: never
-Account expires						: never
-Minimum number of days between password change		: 0
-Maximum number of days between password change		: 99999
-Number of days of warning before password expires	: 7
-</pre>
 				</section>
 				<section>
 					<h2>Files in Play</h2>
@@ -159,20 +149,18 @@ Number of days of warning before password expires	: 7
 						<li>/etc/passwd</li>
 						<li>/etc/shadow</li>
 						<li>/var/log/secure</li>
+						<li>/var/log/{wtmp,btmp}</li>
 					</ul>
 				</section>
 				<section>
 					<h2>/etc/passwd</h2>
 					<img src="images/etc-passwd.png" alt="" />
+					<small>USERNAME:"PASSWORD":UID:GID:COMMENT FIELD:HOME DIR:SHELL</small>
 					<ul>
-				    <li>Account username</li>
-				    <li>password - not really</li>
-				    <li>User ID</li>
-				    <li>Group ID</li>
-				    <li>Comment field</li>
-				    <li>Home directory</li>
-				    <li>User shell</li>
+						<li>Accessible by everybody</li>
+						<li>Does not actually contain the password</li>
 					</ul>
+					
 				</section>
 				<section>
 					<h2>/etc/shadow</h2>
@@ -198,6 +186,76 @@ Number of days of warning before password expires	: 7
 						<li>User disconnects</li>
 					</ul>
 				</section>
+				
+				<section>
+					<h2>Commands for Account Management</h2>
+					<pre># useradd joeracker
+# passwd joeracker
+Changing password for user joeracker.
+New password:
+BAD PASSWORD: it is based on a dictionary word
+BAD PASSWORD: is too simple</pre>
+				</section>
+				<section>
+					<h2>Getting Account Information</h2>
+					<pre># id joeracker
+uid=501(joeracker) gid=502(joeracker) groups=502(joeracker)
+
+# finger root
+Login: root           			Name: root
+Directory: /root                    	Shell: /bin/bash
+Last login Sat Aug 29 16:00 2015 (EDT) on pts/0 from 10.0.2.2
+No mail.
+No Plan.
+</pre>
+				</section>
+				<section>
+					<h2>Getting Password Information</h2>
+
+<pre># passwd -S joeracker
+joeracker PS 2016-06-08 0 99999 7 -1 (Password set, SHA512 crypt.)
+
+# chage -l joeracker
+Last password change				: Jun 09, 2016
+Password expires					: never
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 99999
+Number of days of warning before password expires	: 7
+</pre>
+				</section>
+								<section>
+									<h2>passwd</h2>
+									<p>Change a user's password</p>
+									<pre>passwd [USER]</pre>
+					
+									<p>Lock / Unlock a user account</p>
+									<pre>passwd -l [USER]
+				passwd -u [USER]</pre>
+					
+									<p>Expire a user account</p>
+									<pre>passwd -e [USER]</pre>
+					
+								</section>
+				
+								<section>
+									<h2>chage</h2>
+									<p>Force a user to change their password on the next login</p>
+									<pre>chage -d 0 [USER]</pre>
+					
+									<p>Expire a user account</p>
+									<pre>chage -E $(date -d "1 week" +%F)[USER]</pre>
+					
+									<p>List Account Info</p>
+									<pre>chage -l [USER]</pre>
+								</section>
+				
+								<section>
+									<h2>last / lastb</h2>
+									<p>last - Show the last users logged in. Writs to /var/log/wtmp</p>
+									<p>lastb - Show the last bad attempts /var/log/btmp</p>
+								</section>
 				<section>
 					<h2>PAM (Briefly)</h2>
 					<ul>
@@ -287,54 +345,12 @@ auth        required      pam_deny.so</pre>
 					<h2>The rest is magic!</h2>
 					<img src="images/magic-cat.jpg" alt="" >
 				</section>
-				
-				<section>
-					<h2>Account Mangaemnet</h2>
-					<ul>
-						<li>passwd</li>
-						<li>chage</li>
-						<li>last / lastb</li>
-					</ul>
-				</section>
-				
-				<section>
-					<h2>passwd</h2>
-					<p>Change a user's password</p>
-					<pre>passwd [USER]</pre>
-					
-					<p>Lock / Unlock a user account</p>
-					<pre>passwd -l [USER]
-passwd -u [USER]</pre>
-					
-					<p>Expire a user account</p>
-					<pre>passwd -e [USER]</pre>
-					
-				</section>
-				
-				<section>
-					<h2>chage</h2>
-					<p>Force a user to change their password on the next login</p>
-					<pre>chage -d 0 [USER]</pre>
-					
-					<p>Expire a user account</p>
-					<pre>chage -E $(date -d "1 week" +%F)[USER]</pre>
-					
-					<p>List Account Info</p>
-					<pre>chage -l [USER]</pre>
-				</section>
-				
-				<section>
-					<h2>last / lastb</h2>
-					<p>last - Show the last users logged in. Writs to /var/log/wtmp</p>
-					<p>lastb - Show the last bad attempts /var/log/btmp</p>
-				</section>
-				
 			</section>
 				
 <!-- SECTION PROCESS -->								
 				<section>
 				<section>
-					<h2>Process</h2>
+					<h1>Process</h1>
 					<hr/>
 					<h3>Intro to password "recovery"</h3>
 				</section>
@@ -345,6 +361,10 @@ passwd -u [USER]</pre>
 				<section>
 					<h2>Brute Force</h2>
 					<p>Much simpler, computing the hash every time. More CPU intensive.</p>
+				</section>
+				<section>
+					<h2>Un-salted Passwords</h2>
+					<h3>Remember the linkedin un-salted passwords thing?</h3>
 				</section>
 				<section>
 					<h2>Seasoned Passwords</h2>
@@ -361,6 +381,10 @@ passwd -u [USER]</pre>
 						<li><a href="http://www.openwall.com/john/">John the Ripper</a></li>
 						<li><a href="https://hashcat.net/oclhashcat/">HashCat</a></li>
 					</ul>
+				</section>
+				<section>
+					<h2>Quick Demo</h2>
+					John the Ripper
 				</section>
 				</section>
 				
