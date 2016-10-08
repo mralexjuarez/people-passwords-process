@@ -59,15 +59,10 @@
 					</ul>
 				</section>
 				
-				<section>
-					<h2>So Why this Topic?</h2>
-					<blockquote>If you can't explain it simply, you don't understand it well enough. <br/>-Albert Einstein</blockquote>
-				</section>
-				
 				</section>
 				
 				<section>
-					<h1>I am not an expert!</h1>
+					<h1>I am not the expert!</h1>
 				</section>
 								
 <!-- SECTION PEOPLE -->				
@@ -75,10 +70,10 @@
 				<section>
 					<h1>People</h1>
 					<hr/>
-					<h3>Usually we are the problem</h3>
+					<h3>Usually we are part of the problem</h3>
 				</section>
 				<section>
-					<h2>Passwords can be leaked</h2>
+					<h2>The initial idea for this talk</h2>
 					<a href="http://boingboing.net/2016/03/30/cnbcs-secure-password-tutori.html" target="_blank"><img src="images/boingboing.png" alt="" /></a>
 					<small><a href="http://boingboing.net/2016/03/30/cnbcs-secure-password-tutori.html" target="_blank">http://boingboing.net/2016/03/30/cnbcs-secure-password-tutori.html</a></small>
 				</section>
@@ -89,7 +84,8 @@
 				</section>
 				<section>
 					<h1>117 Million</h1>
-					<h3 class="fragment">The number of linkedin passwords leaked</h3>
+					<h3 class="fragment">The number of linkedin passwords stolen</h3>
+					<small class="fragment"><a href="http://motherboard.vice.com/read/another-day-another-hack-117-million-linkedin-emails-and-password">http://motherboard.vice.com/read/another-day-another-hack-117-million-linkedin-emails-and-password</small>
 				</section>
 				<section>
 					<h2>June 5th 2012</h2>
@@ -100,6 +96,38 @@
 					From TechCrunch
 					<img src="images/unsalted2.png" alt="" />
 					<br/>
+					From linkedin
+					<img src="images/unsalted1.png" alt="" />
+				</section>
+				<section>
+					<h1><blockquote>the passwords were stored as un-salted SHA-1 hashes</blockquote></h1>
+				</section>
+				<section>
+					<h2>Ways to Store Passwords</h2>
+					<p>#1 You can just store them in plain-text</p>
+					<ul>
+						<li>No cracking needed</li>
+						<li>No thought needed</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Ways to Store Passwords</h2>
+					<p>#2 You can store them as a hash</p>
+					<ul>
+						<li>A little better</li>
+						<li>Crack one, you crack them all.</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Ways to Store Passwords</h2>
+					<p>#3 You can store them as a salted hash</p>
+					<ul>
+						<li>Mmmmm tasty</li>
+						<li>If your crack one, you only crack that one.</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Which brings us back</h2>
 					From linkedin
 					<img src="images/unsalted1.png" alt="" />
 				</section>
@@ -122,7 +150,7 @@
 				</section>
 				<section>
 					<h1>We suck!</h1>
-					<img src="images/spongebob.png" height="250px" width="250px" alt="" />
+					<img src="https://img.buzzfeed.com/buzzfeed-static/static/2015-06/24/19/campaign_images/webdr09/this-may-be-this-cutest-saddest-cat-ever-2-4626-1435188004-0_dblbig.jpg" style="border:0px important;" alt="" />
 				</section>
 				</section>
 				
@@ -262,6 +290,7 @@ Number of days of warning before password expires	: 7
 						<li>Pluggable Authentication Modules</li>
 						<li>Single Source of Authentication</li>
 						<li>Files in /etc/pam.d</li>
+						<li>Configured with authconfig</li>
 					</ul>
 					<img src="images/pam.jpg" alt="" />
 				</section>
@@ -387,10 +416,12 @@ auth        required      pam_deny.so</pre>
 					John the Ripper
 				</section>
 				<section>
-					<h2>Putting it All Together</h2>
-					<a href="https://github.com/mralexjuarez/passguard" target="_blank">https://github.com/mralexjuarez/passguard</a>
+					<h2>John the Ripper</h2>
+					<p>Note: You are going to want to download the community enhanced version</p>
+					<p><a href="http://www.openwall.com/john/j/john-1.8.0-jumbo-1.tar.xz">Link to Community Enhanced Version</a></p>
 				</section>
 				</section>
+			</section>
 				
 <!-- SECTION Demo -->								
 			    <section>
